@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/
+font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+    
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+
+.sidebar {
+  margin: 0;
+  /* margin-bo: 20px; */
+  padding: 0;
+  width: 250px;
+  text-align: center;
+  background-color: #f1f1f1;
+  position: absolute;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar a, .dropdown-btn{
+  display:block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+  width: 100%;
+}
+ 
+.sidebar a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+.dropdown-container {
+  display: none;
+  background-color: #9b9999;
+  padding-left: 8px;
+}
+
+.dropdown-container a.active{
+    background-color: #04AA6D;
+  color: white;
+}
+
+.dropdown-container a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+/* div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+} */
+
+/* @media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+} */
+</style>
+</head>
+<body>
+
+
+<div class="sidebar">
+    <!-- Create Campaign -->
+  <a class="active" href="http://127.0.0.1:8000/Email/Create_Campaign">Create a Campaign</a>
+
+<!-- Create Email -->
+  <button class="dropdown-btn">Create an Email
+
+
+    <i id="create_email" class="material-icons right">arrow_drop_down</i>
+</button>
+    <div class="dropdown-container">
+        <a href="http://127.0.0.1:8000/Email/Create_an_email/Basic" >Basic</a>
+        <a href="http://127.0.0.1:8000/Email/Create_an_email/Templates">Templates</a>
+        <a href="http://127.0.0.1:8000/Email/Create_an_email/Content">Content</a>
+        <a href="http://127.0.0.1:8000/Email/Create_an_email/Existing_Email">Existing Email</a>
+
+      </div>
+
+
+<!-- Testing of Email -->
+  <button class="dropdown-btn">Email A/B Test
+    <i class="material-icons right">arrow_drop_down</i>
+</button>
+    <div class="dropdown-container">
+        <a href="#">Add A/B Test</a>
+        <a href="#">Subject line A/B Test</a>
+        <a href="#">Whole Email A/B Test</a>
+
+      </div>
+
+
+<!-- Send the Campaign -->
+<button class="dropdown-btn">Sending the Campaign
+    <i class="material-icons right">arrow_drop_down</i>
+</button>
+    <div class="dropdown-container">
+        <a href="#">Sending Time</a>
+        <a href="#">Preview Campaign</a>
+        <a href="#">Approving Campaign</a>
+        <a href="#">My Campaigns</a>
+      </div>
+
+
+</div>
+
+</body>
+
+<script>
+    /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+    var dropdown = document.getElementsByClassName("dropdown-btn");
+    var i;
+    
+    for (i = 0; i < dropdown.length; i++) {
+      dropdown[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var dropdownContent = this.nextElementSibling;
+      if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+      } else {
+        dropdownContent.style.display = "block";
+      }
+      });
+    }
+
+    function change_side_tab(side_tab){
+      var side_tab_value = document.getElementById(side_tab).innerHTML; 
+      window.location.pathname = 'Email/Create_an_email/'+side_tab_value;
+    }
+    
+</script>
+
+

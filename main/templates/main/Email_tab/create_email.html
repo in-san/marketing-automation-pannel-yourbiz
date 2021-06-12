@@ -1,0 +1,16 @@
+{% extends "main/Email_tab/header.html" %}
+
+{% block content %}
+    <button type="submit" onclick="cc()"></button>
+<p id="campaign_name"></p>
+{{campaign_name |json_script:"campaign_name"}}
+    <h2>You are now logged in as <strong>{{campaign_name}}</strong></h2>
+<script>
+
+
+    function cc() {
+    document.getElementById("campaign_name").innerHTML = localStorage.campaign_name;
+}
+</script>
+
+{% endblock %}

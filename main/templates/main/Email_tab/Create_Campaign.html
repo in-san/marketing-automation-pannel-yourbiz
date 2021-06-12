@@ -1,0 +1,85 @@
+{% extends "main/Email_tab/header.html" %}
+<style>
+    input[type=text], select {
+  width: 60%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.save{
+    margin-bottom: 50px;
+}
+/* .button{
+    
+} */
+</style>
+{% block content %}
+    <!-- <form action="Campaign"> -->
+ <!-- <h1>   
+         Title:<input type="text"  name="Campaign_name" id="Campaign_name" value="None">
+    </h1>   
+     -->
+    <br>
+    <form action="">
+    <div class="Campaign_name">
+     <label for="Campaign_name" style="display: inline-block; font-size: 50px;margin-left: 0px">Title:</label>
+    <input type="text"  name="Campaign_name" id="Campaign_name" value="{{campaign_name}}" style="float: inline-end;">
+</div>
+        
+    <br><br>
+    <div class="target" style="float: left;">
+    <label for="target" style="display: inline-block; font-size: 50px; ">Target:</label>
+    <br>
+        <div class="list" style="float: right;">
+        <label for="people" style="display: inline-block; font-size: 25px;">People:</label>
+        <label for="blocked" style="display: inline-block; font-size: 25px; float: right; margin-right: 180px;">Blocked:</label>
+        <br>
+        <input type="file"  name="people" id="people">
+        
+        <input type="file"  name="blocked" id="blocked" style="margin-left: 30px;">
+    </div>
+    </div>
+    <div class="save">
+    <button type="submit";
+        id="Save";
+        border: none;
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    >
+        SAVE
+    </button>
+</div>
+</form>
+<script>
+//     function create_campaign(){
+//         var campaign_name = document.getElementById("Campaign_name").innerHTML;
+//         var xhttp = new XMLHttpRequest();
+//   xhttp.onreadystatechange = function() {
+//     if (this.readyState == 4 && this.status == 200) {
+//       document.getElementById("demo").innerHTML =
+//       this.responseText;
+//     }
+//   };
+//   xhttp.open("GET", "ajax_info.txt", true);
+//   xhttp.send();
+//     }
+
+
+    document.querySelector('#Save').onclick = function(e) {
+            var campaign_name = document.querySelector('#Campaign_name').value;
+            window.location.pathname = '/Email/Create_campaign/' + campaign_name ;
+        };
+</script>
+
+{% endblock %}

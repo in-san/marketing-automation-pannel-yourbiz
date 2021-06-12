@@ -1,0 +1,13 @@
+{% extends "main/Email_tab/header.html" %}
+
+{% block content %}
+    
+<p id="campaign_name"></p>
+{{campaign_name |json_script:"campaign_name"}}
+    <h2>You are now logged in as <strong>{{campaign_name}}</strong></h2>
+
+<script>
+
+</script>
+
+{% endblock %}

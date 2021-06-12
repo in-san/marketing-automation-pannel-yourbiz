@@ -1,0 +1,53 @@
+<head>
+
+    <style>
+      div.container {
+    margin-left: 250px;
+    padding: 1px 16px;
+    height: 1000px;
+  }
+    </style>
+    {% load static %}
+    
+    <link href="{% static 'tinymce/css/prism.css' %}" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+  </head>
+  
+  <body>
+  <div class="navbar">
+      {% include "main/includes/fixed_navbar.html" %}
+      
+      {% include "main/includes/navbar.html" %}
+    </div>
+      {% include "main/Email_tab/sidenav.html" %}
+    
+    <div class="container">
+      {% block content %}
+      {% endblock %}
+    </div>
+  
+  </body>
+  
+  <script src="{% static 'tinymce/js/prism.js' %}"></script>
+  <script>M.AutoInit();</script>
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script>
+  window.onscroll = function() {scrollFunction()};
+  function scrollFunction() {
+    document.getElementById("navbar").style.top = "0";
+  
+  }
+}
+  </script>
+
+
+  
+
+  
